@@ -10,15 +10,19 @@
 
 (defun org-sitemap-custom-entry-format (entry style project)
   "Sitemap entry format that includes date."
-  (let ((filename (org-publish-find-title entry project)))
+  (let ((filename (org-publish-find-title entry project))
+	(notebookname (file-name-sans-extension entry) ".ipynb"))
     (if (= (length filename) 0)
         (format "*%s*" entry)
-      (format "{{{div(%s)}}} [[%s][%s]]"
+      (format "{{{div(%s)}}} [[%s][%s]] [[%s][%s]]"
               (format-time-string "%Y-%m-%d"
 				  (org-publish-find-date entry project))
 	      (concat "https://mybinder.org/v2/gl/bhugueney%2Ftest-notebooks-org-publish/master?filepath=public/"
-		      (file-name-sans-extension entry) ".ipynb")
-              filename))))
+		      notebookname)
+	      (concat filename " on mybinder") 
+	      (concat "https://colab.research.google.com/github/bhugueney/test-notebooks-org-publish/blob/master/public/" notebookname)
+              (concat filename " on google colaboratory") ))))
+
 (defun publish-index-as-html-oterwise-ipynb (_plist filename pub-dir)
   (if (equal (file-name-nondirectory filename)  "index.org")
       (org-html-publish-to-html _plist filename pub-dir)   
