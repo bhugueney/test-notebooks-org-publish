@@ -11,7 +11,7 @@
 (defun org-sitemap-custom-entry-format (entry style project)
   "Sitemap entry format that includes date."
   (let ((filename (org-publish-find-title entry project))
-	(notebookname (file-name-sans-extension entry) ".ipynb"))
+	(notebookname (concat (file-name-sans-extension entry) ".ipynb")) )
     (if (= (length filename) 0)
         (format "*%s*" entry)
       (format "{{{div(%s)}}} [[%s][%s]] [[%s][%s]]"
