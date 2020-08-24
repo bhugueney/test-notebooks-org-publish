@@ -1,5 +1,6 @@
 #+TITLE: Data-Science : Quoi / Pourquoi / Comment ?
 #+AUTHOR: Bernard HUGUENEY
+#+DATE: <2020-08-24 Mon 15:24>
 
 #+BEGIN_SRC emacs-lisp :exports none :results silent
 (setq ob-ipython-show-mime-types nil)
