@@ -1,0 +1,360 @@
+#+TITLE: Data-Science : Quoi / Pourquoi / Comment ?
+#+AUTHOR: Bernard HUGUENEY
+
+#+BEGIN_SRC emacs-lisp :exports none :results silent
+(setq ob-ipython-show-mime-types nil)
+#+END_SRC
+
+#+RESULTS:
+
+
+* Data-Science : Quoi / Pourquoi / Comment ?
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+
+* Connaissances métier × Statistiques × Informatique
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+#+attr_ipynb: (hideCode . true) (hidePrompt . true)
+#+BEGIN_SRC ipython :exports results :display image/png :restart
+import matplotlib.pyplot as plt
+from matplotlib_venn import venn3
+plt.figure(figsize=(10,10));plt.rc('font', size=20)
+data_science=5
+venn3((10,10,10,10,10,10,data_science), set_labels = ('Connaissances métier', 'Statistiques', 'Informatique')
+      , subset_label_formatter= lambda x: "Data Science" if x==data_science else None);
+#+END_SRC
+
+#+RESULTS:
+:results:
+# Out [1]: 
+
+[[file:obipy-resources/184c95a80de40307c4c2ad838874b78b706444af/9469356b12751676463c0ed96a48a9ae4d29d981.png]]
+:end:
+
+
+
+
+Remarque :
+
+Informatique ≠ "Computer science"
+
+
+* La révolution informatique n'a pas encore eu lieu
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+[[https://www.computer.org/csdl/proceedings-article/icse/1999/21540584/12OmNvlxJz1][Cf. Révolution de l'imprimerie]].
+
+* L'ordinateur comme outil pour comprendre
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+Extension du cerveau :
+
+- Percevoir
+- Traiter
+- Modéliser
+- Valider ses modèles
+- Prévoir
+
+Maximisation de la bande passante entre l'ordinateur et le cerveau : visualisation.
+
+** Percevoir
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Acquisition / lecture de données
+
+** Traitement de données
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+- Gestion des différents formats de données
+- Fusion de différentes sources
+- Gestion des valeurs manquantes / aberrantes
+
+** Modélisation
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+- Modélisation descriptive / prédictive
+
+- Concepts → classes d'équivalences
+
+- Détermination d'une structure sous-jacente
+
+
+
+** Valider ses modèles
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+*** Validation de modèles descriptifs
+
+Cognition matérialiste et non idéaliste : plutôt que de s'intéresser à la /probabilité/ d'évẽnements selon un modèle donné, on va s'intéresser à la /vraisemblance/ de modèles selon des évènements observés.
+
+
+*** Validation de modèles prédictifs
+
+Un modèles prédictif doit être valide pour des données n'ayant pas servi à élaborer le modèle (compréhension de la structure sous-jacente vs. apprentissage par cœur).
+
+
+
+** Prévisions
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+On cherche à minimiser le coût des erreurs de prévision : il y a souvent des compromis à faire (faux positifs vs faux négatifs).
+
+
+** Compréhension ?
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Corrélations ≠ Causalité L'analyse de données aide plutôt à poser les questions pertinentes qu'à donner des explications.
+
+Cf. Connaissances métier !
+
+
+* Statistiques
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+En pratique, les données suivent rarement les lois de distributions mathématiques pour lesquelles on a des démonstrations. /The proof of the pudding is in the eating./
+
+* Outils : Notebooks Python
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+** Python
+
+Un langage *interprété* avec un écosystème extrêmement riche pour l'analyse de données. Pour des raisons de performance, on ne peut pas traiter de gros volumes de données *en* python, mais on peut traiter de gros volumes de données *avec* python, grâce à des bibliothèques (qui ne sont pas écrites en python).
+
+
+[[https://imgs.xkcd.com/comics/compiling.png]]
+
+
+
+* Coder vs développer des logiciels
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+On évite les deux principales difficultés du développement logiciel :
+
+- complexité algorithmique : on va sous-traiter les problèmes
+  difficiles aux auteurs de bibliothèques
+- complexité architecturale : on ne va pas développer un logiciel
+  destiné à être maintenu par une équipe sur la durée.
+
+* Développement orienté StackOverflow
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+S'il s'agit surtout d'appeler correctement des fonctions de bibliothèques, on peut trouver facilement des bouts de codes en réponse aux mêmes questions / messages d'erreurs
+
+
+[[file:img/StackOverflow-Search.png]]
+
+* Quantité de bibliothèques disponibles
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+Apprentissage /Just In Time/ (sur le tas) plutôt que /Just In Case/ (au cas où).
+
+
+* Pouvoir vs Savoir
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+Distinguer ce qu'on peut faire de ce qu'on sait faire : accepter d'expérimenter !
+
+
+* Connaissances minimales essentielles
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+Niveaux de détails :
+
+1. *Ce qu'on veut faire*
+2. *Les concepts mis en jeu*
+3. *Les bibliothèques python qui les implémentent*
+4. Les fonctions de ces bibliothèques à utiliser
+5. Comment utiliser ces fonctions
+
+** Ce qu'on veut faire
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+1. Pouvoir lire des données
+2. Les nettoyer (valeurs manquantes/ aberrantes)
+3. Les décrire :
+   - mathématiquement (modèles)
+   - visuellement
+4. En inférer des propriétés :
+   - de la population dont les données disponibles constituent un échantillon
+   - de réalisations futures d'évènements dont les données disponibles constituent le passé
+5. Faire des prévisions sur de nouvelles données
+
+** Lire des données
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Notion de *DataFrame* (cf. feuille de calcul, table de SGDBR), avec un *index* et des *colonnes*, implémentés par la bibltiothèque [[https://pandas.pydata.org/][Pandas]].
+
+** Nettoyer des données
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Notion de *types* de données et de *valeurs manquantes*. Le volume de données impose d'utiliser des structures de données performantes implémentées par la bibliothère [[https://numpy.org/][Numpy]] (utilisée par [[https://pandas.pydata.org/][Pandas]]).
+
+** Décrire des données
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Attributs numériques ou catégoriels.
+
+
+** Modélisation mathématiques
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Notion de centiles et de *distribution*, avec ses /moments/ : /moyenne/, /variance/, /skew/ (asymétrie), /kurtosis/ (acuité). Corrélations (/effect size/, /p-value/) implémentées par [[https://www.scipy.org/][SciPy]] et [[https://www.statsmodels.org/][Statsmodels]].
+
+** Visualisation
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Représenter graphiquement des données selon des attributs numériques ou catégoriels et pouvoir personnaliser / annoter / configurer les figures, grâce à [[https://seaborn.pydata.org/][Seaborn]] basé sur [[https://matplotlib.org/][Matplotlib]].
+
+** Inférer des propriétés
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Cf. Modélisation mathématiques, toujours avec [[https://www.statsmodels.org/][Statsmodels]].
+
+** Prévision (machine learning)
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+Concepts :
+- Prévoir les valeurs d'attributs numériques (*régression*) ou catégoriels (*classification*)
+- Évaluer des prévisions numériques (*Root Mean Square Error*, *Mean Absolute Error*) ou catégorielles (comprimis *précision / rappel* , courbe *ROC*, *AUC*)
+- Utiliser des jeux de données d':
+  1. *apprentissage*
+  2. *validation*
+  3. *test*
+
+Implémentés en python avec la bibliothèque [[https://scikit-learn.org/stable/][Scikit-learn]] (le nom du module Python est sklearn)
+
+* Aspects pédagogiques
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+
+Objectifs :
+- devenir autonome donc autodidacte
+- apprendre le plus efficacement (donc rapidement) possible
+
+
+* Courbe Apprentissage(charge cognitive)
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . slide)))
+   :END:
+#+attr_ipynb: (hideCode . true) (hidePrompt . true)
+#+BEGIN_SRC ipython
+import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
+import math
+
+plt.xkcd()
+plt.figure(figsize=(20,10));
+plt.rc('font',size=32)
+
+#plt.rcParams['lines.linewidth'] = 10
+plt.rc('lines', linewidth = 10)
+
+mu = 0
+variance = 1
+sigma = math.sqrt(variance)
+x = np.linspace(mu - 3*sigma, mu + 3*sigma, 40)
+plt.plot(x, stats.norm.pdf(x, mu, sigma))
+plt.xlabel("intensite / charge cognitive")
+plt.ylabel("apprentissage")
+plt.tick_params(axis='x', which='both', bottom=False, top=False, labelbottom=False)
+plt.tick_params(axis='y', which='both', right=False, left=False, labelleft=False)
+for pos in ['right','top','bottom','left']:
+    plt.gca().spines[pos].set_visible(False)
+plt.axvline(-1, color='k', linestyle='solid')
+plt.axvline(1, color='k', linestyle='solid')
+plt.text(-2.5,0.45,'Ennui')
+plt.text(1.5,0.45,'Stress')
+plt.annotate('Etes-vous ici?', xy=(0, 0.4), xytext=(-0.75, 0.2),c='red',
+            arrowprops=dict(facecolor='red', arrowstyle='fancy, tail_width=0.8, head_length=2, head_width=1.8'))
+
+plt.show()
+#+END_SRC
+
+#+RESULTS:
+:results:
+# Out [2]: 
+: <Figure size 1440x720 with 1 Axes>
+
+
+[[file:obipy-resources/184c95a80de40307c4c2ad838874b78b706444af/3cb0fb80f5dab5cb18dd4d4552a465bd2182518e.png]]
+:end:
+
+
+
+* Dispositif pédagogique
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+- Pour chacun des modules :
+  1. Tutoriel :
+     - interactif
+     - avec petits exercices
+  2. Travaux Pratiques : mise en œuvre plus ou moins (de plus en plus !) autonome
+  3. Mini quizz
+
+- En fin de session : Mini projet
+
+* Des questions ?
+   :PROPERTIES:
+   :metadata: (slideshow . ((slide_type . subslide)))
+   :END:
+
+(La bonne réponse est "Oui!" ☺)
+
+#+BEGIN_QUOTE
+Si tu veux construire un bateau, ne rassemble pas tes hommes et femmes pour leur donner des ordres, pour expliquer chaque détail, pour leur dire où trouver chaque chose... Si tu veux construire un bateau, fais naître dans le coeur de tes hommes et femmes le désir de la mer. ---Antoine de Saint-Exupéry
+#+END_QUOTE

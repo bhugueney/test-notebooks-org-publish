@@ -1,0 +1,121 @@
+#+TITLE: Informatique - listes - project sample
+#+AUTHOR: Nicolas Rousset
+#+DATE: 7 mai 2020
+#+LANGUAGE:  fr
+
+* Exercice n 1
+
+Écrire une fonction *listeNombresPremiers* qui prend un argument ~n~ et renvoit une liste des ~n~ premiers nombres entiers.
+
+** Code à écrire / compléter
+#+BEGIN_SRC ipython 
+#%load hints/exo_1-1.py
+# Écrire le code ici
+#+END_SRC
+
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/exo_1-1.py
+#%load solutions/exo_1.py
+def estPremier(n):
+# Écrire le code ici
+    return True
+
+def listeNombresPremiers(n):
+    res = []
+    for it in range(2, (n+3)**2):
+        if estPremier(it):
+        res.append(it)
+            if len(res) == n:
+                return res
+#+END_SRC
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/exo_1.py
+def estPremier(n):
+    for k in range(2, int(n**0.5 + 1)):
+        if n % k == 0:
+            return False
+        
+    return True
+
+def listeNombresPremiers(n):
+    res = []
+    for it in range(2, (n+3)**2):
+        if estPremier(it):
+            res.append(it)
+            if len(res) == n:
+                return res
+
+#+END_SRC
+
+
+** Tests
+
+
+#+BEGIN_SRC ipython 
+listeNombresPremiers(11)==[2,3,5,7,11,13,17,19,23,29,31]
+#+END_SRC
+
+#+BEGIN_SRC ipython 
+import sys
+sys.path.insert(0, "./solutions")
+#+END_SRC
+
+
+#+BEGIN_SRC ipython 
+import exo_1
+all([(listeNombresPremiers(i) == exo_1.listeNombresPremiers(i)) for i in range(2,20)])
+#+END_SRC
+
+
+* Exercice n 2
+
+Corriger le code suivant, qui prend en argument un entier ~n~ et devrait renvoyer la liste des ~n~ premiers entiers (à partir de 1) au carré.
+
+** Code à écrire / modifier
+
+#+BEGIN_SRC ipython 
+#%load hints/exo_2-1.py
+# Modifiez le code ci-dessous
+def squareList(n):
+    res = []
+    for it in range(n):
+        res.append(n**2)
+    return res
+#+END_SRC
+
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/exo_2-1.py
+#%load solutions/exo_2.py
+def squareList(n):
+    res = []
+    for it in range(1, n+1):
+        None
+        # Écrire le code ici
+    return res
+#+END_SRC
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/exo_2.py
+def squareList(n):
+    res = []
+    for it in range(1, n+1):
+        res.append(it**2)
+    return res
+#+END_SRC
+
+** Tests
+
+#+BEGIN_SRC ipython 
+squareList(6) == [1, 4, 9, 16, 25, 36]
+#+END_SRC
+
+#+BEGIN_SRC ipython 
+import exo_2
+all([(squareList(i) == exo_2.squareList(i)) for i in range(2,20)])
+#+END_SRC
+
+
+
+* COMMENT File-local variables :noexport:
+Local Variables:
+ispell-local-dictionary: "fr-lrg"
+org-src-preserve-indentation: t
+indent-tabs-mode: nil
+End:
