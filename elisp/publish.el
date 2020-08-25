@@ -4,6 +4,14 @@
 (require 'ox-ipynb)
 (require 'ox-publish)
 
+(defun ipynb-rise-metadata (orig-func &rest args)
+  (let ((data (apply orig-func args)))
+    ;; now add the desired rise metadata. this is the second element
+    (push '(rise . (("autolaunch" . "true"))) (cdr (second data)))
+    data))
+
+(advice-add 'ox-ipynb-export-to-buffer-data :around #'ipynb-rise-metadata )
+
 ;; https://lists.gnu.org/archive/html/emacs-orgmode/2019-07/msg00060.html
 (setq org-export-global-macros
       '(("div" . "@@html:<div class=\"timestamp\">[$1]</div>@@")))
