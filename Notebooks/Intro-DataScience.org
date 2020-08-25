@@ -6,7 +6,16 @@
 (setq ob-ipython-show-mime-types nil)
 #+END_SRC
 
-#+RESULTS:
+#+BEGIN_SRC emacs-lisp :exports results :results silent
+(defun ipynb-rise-metadata (orig-func &rest args)
+  (let ((data (apply orig-func args)))
+    ;; now add the desired rise metadata. this is the second element
+    (push '(rise . (("autolaunch" . "true"))) (cdr (second data)))
+    data))
+
+(advice-add 'ox-ipynb-export-to-buffer-data :around #'ipynb-rise-metadata )
+#+END_SRC
+
 
 
 * Data-Science : Quoi / Pourquoi / Comment ?
