@@ -10,6 +10,7 @@ apt update && apt install yarn
 
 git clone https://github.com/twosigma/beakerx.git
 cd beakerx
+conda init bash
 conda env create -n beakerx -f configuration.yml
 conda activate beakerx # For conda versions prior to 4.6, run: source activate beakerx
 (cd beakerx; pip install -r requirements.txt --verbose)
