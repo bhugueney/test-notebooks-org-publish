@@ -1,3 +1,2 @@
 graphviz
-yarnpkg
 openjdk-11-jdk
