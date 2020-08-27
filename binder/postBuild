@@ -4,8 +4,8 @@
 
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list
-apt update && apt install yarn
+sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list
+sudo apt update && sudo apt install yarn
 
 
 git clone https://github.com/twosigma/beakerx.git
