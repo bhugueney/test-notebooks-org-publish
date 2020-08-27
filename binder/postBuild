@@ -3,10 +3,12 @@
 
 
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list
-sudo apt update && sudo apt install yarn
+#curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+#sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list
+#sudo apt update && sudo apt install yarn
 
+wget  https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb
+dpkg -i yarn_1.22.5_all.deb
 
 git clone https://github.com/twosigma/beakerx.git
 cd beakerx
