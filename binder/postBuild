@@ -1,5 +1,5 @@
 
-#conda install beakerx
+conda install beakerx
 
 
 
@@ -7,14 +7,14 @@
 #sudo echo "deb https://dl.yarnpkg.com/debian/ stable main" >> /etc/apt/sources.list
 #sudo apt update && sudo apt install yarn
 
-wget  https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb
-dpkg -i yarn_1.22.5_all.deb --force-not-root --root=$HOME
-ls -R $HOME
-git clone https://github.com/twosigma/beakerx.git
-cd beakerx
-conda init bash
-conda env create -n beakerx -f configuration.yml
-conda activate beakerx # For conda versions prior to 4.6, run: source activate beakerx
-(cd beakerx; pip install -r requirements.txt --verbose)
-beakerx install
-beakerx_databrowser install
+#wget  #https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb
+#dpkg -i yarn_1.22.5_all.deb --force-not-root --root=$HOME
+#ls -R $HOME
+#git clone https://github.com/twosigma/beakerx.git
+#cd beakerx
+#conda init bash
+#conda env create -n beakerx -f configuration.yml
+#conda activate beakerx # For conda versions prior to 4.6, run: source activate beakerx
+#(cd beakerx; pip install -r requirements.txt --verbose)
+#beakerx install
+#beakerx_databrowser install
