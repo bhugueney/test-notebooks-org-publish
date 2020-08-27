@@ -1,2 +1,2 @@
 graphviz
-openjdk-15-jdk
+openjdk-11-jdk
