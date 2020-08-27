@@ -8,8 +8,8 @@
 #sudo apt update && sudo apt install yarn
 
 wget  https://raw.githubusercontent.com/yarnpkg/releases/gh-pages/debian/pool/main/y/yarn/yarn_1.22.5_all.deb
-dpkg -i yarn_1.22.5_all.deb
-
+dpkg -i yarn_1.22.5_all.deb --force-not-root --root=$HOME
+ls -R $HOME
 git clone https://github.com/twosigma/beakerx.git
 cd beakerx
 conda init bash
