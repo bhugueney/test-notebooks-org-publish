@@ -1,4 +1,3 @@
-curl
-wget
 graphviz
-openjdk-11-jdk
+python3-numpy
+libatlas-base-dev

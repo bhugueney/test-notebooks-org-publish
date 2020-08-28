@@ -1,9 +1,8 @@
-name: rise-environment
+name: beakerx
 channels:
   - conda-forge
 dependencies:
-  - python
+  - ipywidgets
+  - beakerx
+  - graphviz
   - numpy
-  - matplotlib
-  - pandas
-  - rise
