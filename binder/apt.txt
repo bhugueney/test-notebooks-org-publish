@@ -1,3 +1,2 @@
 graphviz
-python3-numpy
-libatlas-base-dev
+
