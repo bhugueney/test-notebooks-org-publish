@@ -58,13 +58,18 @@
          :recursive t
          :publishing-function org-publish-attachment
          )
-	("python-src" ;; should distinguish hints and solutions ?
-         :base-directory "./Notebooks"
-         :base-extension "py"
+	;; ("python-src" ;; should distinguish hints and solutions ?
+        ;;  :base-directory "./Notebooks"
+        ;;  :base-extension "py"
+        ;;  :publishing-directory "./public/"
+        ;;  :recursive t
+        ;;  :publishing-function org-publish-attachment
+        ;;  )
+	("tangles"			;; hints and solutions
+         :base-directory "./Notebooks/"
          :publishing-directory "./public/"
          :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ("all" :components ("notebooks" "img" "python-src"))))
+         :publishing-function org-babel-tangle-publish)
+        ("all" :components ("notebooks" "img" "tangles"))))
 
 (org-publish-all)

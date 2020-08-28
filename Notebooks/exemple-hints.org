@@ -24,7 +24,7 @@ def listeNombresPremiers(n):
     res = []
     for it in range(2, (n+3)**2):
         if estPremier(it):
-        res.append(it)
+            res.append(it)
             if len(res) == n:
                 return res
 #+END_SRC
