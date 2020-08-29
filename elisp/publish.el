@@ -92,7 +92,7 @@
          :base-directory "./Notebooks/"
          :publishing-directory "./public/"
          :recursive t
-         :publishing-function org-babel-tangle-publish-with-directories)
+         :publishing-function tangle-publish-with-directories)
         ("all" :components ("notebooks" "img" "tangles"))))
 
 (org-publish-all)
