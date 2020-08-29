@@ -111,38 +111,6 @@ import exo_2
 all([(squareList(i) == exo_2.squareList(i)) for i in range(2,20)])
 #+END_SRC
 
-* Test de tangle
-
-** Code à écrire / modifier
-
-#+BEGIN_SRC ipython 
-#%load hints/exo_test-1.py
-# Modifiez le code ci-dessous
-def squareList(n):
-    res = []
-    for it in range(n):
-        res.append(n**2)
-    return res
-#+END_SRC
-
-
-#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/exo_test-1.py
-#%load solutions/exo_test.py
-def squareList(n):
-    res = []
-    for it in range(1, n+1):
-        None
-        # Écrire le code ici
-    return res
-#+END_SRC
-#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/exo_test.py
-def squareList(n):
-    res = []
-    for it in range(1, n+1):
-        res.append(it**2)
-    return res
-#+END_SRC
-
 
 * COMMENT File-local variables :noexport:
 Local Variables:
