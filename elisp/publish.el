@@ -34,8 +34,31 @@
 (defun publish-index-as-html-oterwise-ipynb (_plist filename pub-dir)
   (if (equal (file-name-nondirectory filename)  "index.org")
       (org-html-publish-to-html _plist filename pub-dir)   
-    (ox-ipynb-publish-to-notebook _plist filename pub-dir))
-  )
+    (ox-ipynb-publish-to-notebook _plist filename pub-dir)))
+
+(defun common-prefix (str1 str2)
+  (common-prefix-impl str1 str2 ""))
+(defun common-prefix-impl (str1 str2 res)
+  (if (or (= (length str1) 0) (= (length str2) 0) (not (= (aref str1 0) (aref str2 0))))
+      res
+    (common-prefix-impl (substring str1 1) (substring str2 1) (concat res (substring str1 0 1)))))
+
+(defun copy-file-creating-dirs (filename dest)
+  (unless (file-exists-p (file-name-directory dest)
+			 (make-directory (file-name-directory dest) t)))
+  (copy-file filename dest t))
+
+
+  (defun move-with-subdirs (notebook-path tangled-path publishing-dir)
+    (let ((root-path ((common-prefix notebook-path tangled-path))))
+      (concat publishing-dir (string-remove-prefix root-path tangled-path))))
+
+(defun tangle-publish-with-directories (_ filename pub-dir)
+  "Tangle FILENAME and place the results in PUB-DIR."
+  (unless (file-exists-p pub-dir)
+    (make-directory pub-dir t))
+  (setq pub-dir (file-name-as-directory pub-dir))
+  (mapc (lambda (el) (copy-file el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
 
 (setq org-publish-project-alist
       '(("notebooks"
@@ -65,11 +88,11 @@
         ;;  :recursive t
         ;;  :publishing-function org-publish-attachment
         ;;  )
-	("tangles"			;; hints and solutions
+	("tangles" ;; hints and solutions
          :base-directory "./Notebooks/"
          :publishing-directory "./public/"
          :recursive t
-         :publishing-function org-babel-tangle-publish)
+         :publishing-function org-babel-tangle-publish-with-directories)
         ("all" :components ("notebooks" "img" "tangles"))))
 
 (org-publish-all)
