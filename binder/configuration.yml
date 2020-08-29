@@ -5,4 +5,8 @@ dependencies:
   - numpy
   - pandas
   - rise
-
+  - pip
+  - pip:
+    - pdfkit
+    - jupyter_contrib_nbextensions
+    - hide_code==0.5.5
