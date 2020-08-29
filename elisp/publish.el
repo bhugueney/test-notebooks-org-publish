@@ -49,9 +49,9 @@
   (copy-file filename dest t))
 
 
-  (defun move-with-subdirs (notebook-path tangled-path publishing-dir)
-    (let ((root-path ((common-prefix notebook-path tangled-path))))
-      (concat publishing-dir (string-remove-prefix root-path tangled-path))))
+(defun move-with-subdirs (notebook-path tangled-path publishing-dir)
+  (let ((root-path (common-prefix notebook-path tangled-path)))
+    (concat publishing-dir (string-remove-prefix root-path tangled-path))))
 
 (defun tangle-publish-with-directories (_ filename pub-dir)
   "Tangle FILENAME and place the results in PUB-DIR."
