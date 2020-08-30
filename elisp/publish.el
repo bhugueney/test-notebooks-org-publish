@@ -1,6 +1,11 @@
 (load "/root/scimax/init.el")
 (let ((default-directory  "/root/scimax"))
   (normal-top-level-add-subdirs-to-load-path))
+
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
+(setq org-plantuml-jar-path
+      (expand-file-name "/root/plantuml-1.2019.8/plantuml.jar"))
+
 (require 'ox-ipynb)
 (require 'ox-publish)
 

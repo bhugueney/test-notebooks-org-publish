@@ -1,0 +1,130 @@
+#+TITLE: Testing generated images
+#+AUTHOR: Bernard Hugueney
+#+DATE: <2020-08-30 Sun 15:20>
+#+LANGUAGE:  fr
+
+
+* Ditaa
+
+[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
+
+
+#+BEGIN_SRC ditaa :file img/ditaa-example.png :exports results
+    +--------+   +-------+    /-------\
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    | cRED  |
+    |     {d}|   | {io}  |    |       |
+    +---+----+   +-------+    \-------/
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+** Graphviz
+The [[https://www.graphviz.org/][reference for graph diagrams]] :
+#+BEGIN_SRC dot :file img/dot-example.svg :exports results
+digraph structs {
+	node[shape=record]
+	struct1 [label="<f0> left|<f1> mid\ dle|<f2> right"];
+	struct2 [label="{<f0> one|<f1> two\n\n\n}" shape=Mrecord];
+	struct3 [label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+	struct1:f1 -> struct2:f0;
+	struct1:f0 -> struct3:f1;
+}
+#+END_SRC
+#+BEGIN_NOTES
+Export to PNG or SVG.
+#+END_NOTES
+
+** Plantuml
+[[http://plantuml.com/][PlantUML]] for most UML diagrams
+** Sequence diagrams
+#+BEGIN_SRC plantuml :file img/plantuml-seq-diag-example.png :exports results
+Alice->Bob : hello
+note left: this is a first note
+Bob->Alice : ok
+note right: this is another note
+Bob->Bob : I am thinking
+note left
+	a note
+	can also be defined
+	on several lines
+end note
+#+END_SRC
+
+
+** Use case diagrams
+#+BEGIN_SRC plantuml :file img/plantuml-use-case-diag-example.png :exports results
+:Main Admin: as Admin
+(Use the application) as (Use)
+User -> (Start)
+User --> (Use)
+Admin ---> (Use)
+note right of Admin : This is an example.
+note right of (Use)
+  A note can also
+  be on several lines
+end note
+note "This note is connected\nto several objects." as N2
+(Start) .. N2
+N2 .. (Use)
+#+END_SRC
+
+** Class diagrams
+#+BEGIN_SRC plantuml :file img/plantuml-class-diag-example.png :exports results
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+  Object[] elementData
+  size()
+}
+
+enum TimeUnit {
+  DAYS
+  HOURS
+  MINUTES
+}
+
+annotation SuppressWarnings
+
+#+END_SRC
+** Activity diagrams
+#+BEGIN_SRC plantuml :file img/plantuml-activity-diag-example.png :exports results
+start
+
+if (Graphviz installed?) then (yes)
+  :process all\ndiagrams;
+else (no)
+  :process only
+  __sequence__ and __activity__ diagrams;
+endif
+
+stop
+#+END_SRC
+** State diagrams
+#+BEGIN_SRC plantuml :file img/plantuml-state-diag-example.png :exports results
+[*] -up-> First
+First -right-> Second
+Second --> Third
+Third -left-> Last
+
+#+END_SRC
+
+
+* COMMENT File-local variables :noexport:
+Local Variables:
+ispell-local-dictionary: "fr-lrg"
+org-src-preserve-indentation: t
+indent-tabs-mode: nil
+End:
