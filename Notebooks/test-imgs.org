@@ -4,24 +4,8 @@
 #+LANGUAGE:  fr
 
 
-* Ditaa
 
-[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
-
-
-#+BEGIN_SRC ditaa :file img/ditaa-example.png :exports results
-    +--------+   +-------+    /-------\
-    |        | --+ ditaa +--> |       |
-    |  Text  |   +-------+    |diagram|
-    |Document|   |!magic!|    | cRED  |
-    |     {d}|   | {io}  |    |       |
-    +---+----+   +-------+    \-------/
-        :                         ^
-        |       Lots of work      |
-        +-------------------------+
-#+END_SRC
-
-** Graphviz
+* Graphviz
 The [[https://www.graphviz.org/][reference for graph diagrams]] :
 #+BEGIN_SRC dot :file img/dot-example.svg :exports results
 digraph structs {
@@ -37,7 +21,7 @@ digraph structs {
 Export to PNG or SVG.
 #+END_NOTES
 
-** Plantuml
+* Plantuml
 [[http://plantuml.com/][PlantUML]] for most UML diagrams
 ** Sequence diagrams
 #+BEGIN_SRC plantuml :file img/plantuml-seq-diag-example.png :exports results
