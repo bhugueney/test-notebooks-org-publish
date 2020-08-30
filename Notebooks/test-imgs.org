@@ -4,6 +4,22 @@
 #+LANGUAGE:  fr
 
 
+* Ditaa
+
+[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
+
+
+#+BEGIN_SRC ditaa :file img/ditaa-example.png :exports results
+    +--------+   +-------+    /-------\
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    | cRED  |
+    |     {d}|   | {io}  |    |       |
+    +---+----+   +-------+    \-------/
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
 
 * Graphviz
 The [[https://www.graphviz.org/][reference for graph diagrams]] :
