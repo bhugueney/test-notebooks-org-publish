@@ -15,7 +15,7 @@
     (push '(rise . (("autolaunch" . "true"))) (cdr (second data)))
     data))
 
-(advice-add 'ox-ipynb-export-to-buffer-data :around #'ipynb-rise-metadata )
+;; (advice-add 'ox-ipynb-export-to-buffer-data :around #'ipynb-rise-metadata )
 
 ;; https://lists.gnu.org/archive/html/emacs-orgmode/2019-07/msg00060.html
 (setq org-export-global-macros
