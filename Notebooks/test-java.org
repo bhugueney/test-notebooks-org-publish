@@ -10,9 +10,11 @@
 System.out.println("Hello World !");
 #+END_SRC
 
+* Markdown
+\( x \lt y \)
 
 * Java class
-
+See code :
 #+BEGIN_SRC java
 public class HelloWorld{
     public static void main(String[] args){
