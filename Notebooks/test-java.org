@@ -1,0 +1,22 @@
+#+TITLE: Testing Java
+#+AUTHOR: Bernard Hugueney
+#+DATE: <2020-08-31 Mon 00:59>
+#+LANGUAGE:  fr
+
+
+* Java code
+
+#+BEGIN_SRC java
+System.out.println("Hello World !");
+#+END_SRC
+
+
+* Java class
+
+#+BEGIN_SRC java
+public class HelloWorld{
+    public static void main(String[] args){
+	System.out.println("Hello World !");
+    }
+}
+#+END_SRC
