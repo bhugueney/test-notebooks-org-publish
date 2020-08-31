@@ -6,6 +6,8 @@ dependencies:
   - pandas
   - rise
   - pip
+  - ipyvolume
+  - appmode
   - pip:
     - pdfkit
     - jupyter_contrib_nbextensions
