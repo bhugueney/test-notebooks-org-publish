@@ -76,7 +76,7 @@
 	 :auto-sitemap t
 	 :sitemap-filename "index.org"
 	 :sitemap-format-entry org-sitemap-custom-entry-format
-	 :sitemap-sort-files "chronologically"
+	 :sitemap-sort-files chronologically
 	 :sitemap-title "Notebooks :"
 	 :with-author nil
          :recursive t
