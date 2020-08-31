@@ -12,7 +12,7 @@ So on google colab, you can only do `!cat test-notebooks-org-publish/public/hint
 
 # TODO
 - create config files https://mybinder.readthedocs.io/en/latest/config_files.html
-
+- Decide how to generate [URL for appmode for the Notebooks that should be app (quiz ?)](https://github.com/oschuett/appmode#description).
 
 
 # Also
