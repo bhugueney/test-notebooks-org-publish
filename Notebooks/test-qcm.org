@@ -1,6 +1,6 @@
 #+TITLE: Testing Multiple Choice Quiz
 #+AUTHOR: Bernard Hugueney
-#+DATE: <2020-08-17 Mon 16:37>
+#+DATE: <2019-08-17 Sat 16:37>
 #+LANGUAGE:  fr
 
 
@@ -9,7 +9,7 @@
 https://github.com/jupyter-widgets/ipywidgets/issues/2487#issuecomment-510721436
 
 
-#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . true)
+#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . t)
 #+BEGIN_SRC ipython 
 import ipywidgets as widgets
 import sys
@@ -17,7 +17,7 @@ from IPython.display import display
 from IPython.display import clear_output
 #+END_SRC
 
-#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . true)
+#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . t)
 #+BEGIN_SRC ipython
 def create_multipleChoice_widget(description, options, correct_answer):
     if correct_answer not in options:
@@ -57,14 +57,14 @@ def create_multipleChoice_widget(description, options, correct_answer):
 
 #+END_SRC
 
-#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . true)
+#+attr_ipynb: (hideCode . true) (hideOutput . true) (hidePrompt . true) (init_cell . t)
 #+BEGIN_SRC ipython
 Q1 = create_multipleChoice_widget('blablabla',['apple','banana','pear'],'pear')
 Q2 = create_multipleChoice_widget('lalalalal',['cat\non\nN\nlines','dog\nalso','mouse'],'dog')
 Q3 = create_multipleChoice_widget('jajajajaj',['blue','white','red'],'white')
 #+END_SRC
 
-#+attr_ipynb: (hideCode . true) (hidePrompt . true) (init_cell . true)
+#+attr_ipynb: (hideCode . true) (hidePrompt . true) (init_cell . t)
 #+BEGIN_SRC ipython
 display(Q1)
 display(Q2)
