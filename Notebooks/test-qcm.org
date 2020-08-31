@@ -3,6 +3,10 @@
 #+DATE: <2019-08-17 Sat 16:37>
 #+LANGUAGE:  fr
 
+* Read This First
+
+This Notebook contains hidden cells with code to generate the quiz. The cells are "initialization cells" and run automatically when the Notebook is trusted, which you should do.
+
 
 * QCM
 
