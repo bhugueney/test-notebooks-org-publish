@@ -14,6 +14,11 @@ So on google colab, you can only do `!cat test-notebooks-org-publish/public/hint
 - create config files https://mybinder.readthedocs.io/en/latest/config_files.html
 - Decide how to generate [URL for appmode for the Notebooks that should be app (quiz ?)](https://github.com/oschuett/appmode#description).
 
+e.g. https://mybinder.org/v2/gh/bhugueney/test-notebooks-org-publish/master?urlpath=%2Fapps%2Fpublic%2Ftest-qcm.ipynb
+
+https://mybinder.org/v2/gl/bhugueney%2Ftest-notebooks-org-publish/master?urlpath=%2Fapps%2Fpublic%2Ftest-qcm.ipynb
+
+could have a sitemap entry function that would [search](http://wikemacs.org/wiki/Emacs_Lisp_Cookbook#Searching) for a string in the org file or better : a [property](https://orgmode.org/manual/Properties-and-Columns.html#Properties-and-columns).
 
 # Also
 https://mybinder.readthedocs.io/en/latest/howto/gh-actions-badges.html
