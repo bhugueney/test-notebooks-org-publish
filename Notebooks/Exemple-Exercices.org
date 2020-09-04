@@ -1,0 +1,212 @@
+#+TITLE: Exemple d'exercices
+#+AUTHOR: Bernard Hugueney
+#+DATE: <2020-09-04 Fri 16:26>
+#+LANGUAGE:  fr
+
+* Régression vers la moyenne
+
+* Coefficient de corrélation
+
+À partir du fichier [[file:Data/Heights/Galton.txt]], calculer le coefficient de corrélation entre la taille des mères et la taille de leurs filles.
+
+Visualiser ce résultat.
+
+** Code à écrire pour charger les données
+#+BEGIN_SRC ipython 
+#%load hints/fr/stats/regression_to_the_mean_1.py
+# Écrire le code ici
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_1.py
+#%load solutions/fr/stats/regression_to_the_mean_1.py
+import pandas as pd
+df_galton= pd.read_csv(# à compléter !
+    )
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_1.py
+import pandas as pd
+df_galton= pd.read_csv("./Data/Heights/Galton.txt", sep='\t')
+#+END_SRC
+
+#+RESULTS:
+:results:
+# Out [1]: 
+:end:
+
+
+** Code à écrire pour calculer le coefficient de corrélation
+
+#+BEGIN_SRC ipython
+#%load hints/fr/stats/regression_to_the_mean_2.py
+# Calculer le coefficient
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_2.py
+#%load solutions/fr/stats/regression_to_the_mean_2.py
+girls=df_galton.loc[df_galton['Gender']=='F']
+girls
+#+END_SRC
+
+#+RESULTS:
+:results:
+# Out [8]: 
+:     Family  Father  Mother Gender  Height  Kids
+: 1        1    78.5    67.0      F    69.2     4
+: 2        1    78.5    67.0      F    69.0     4
+: 3        1    78.5    67.0      F    69.0     4
+: 6        2    75.5    66.5      F    65.5     4
+: 7        2    75.5    66.5      F    65.5     4
+: ..     ...     ...     ...    ...     ...   ...
+: 887    203    62.0    66.0      F    61.0     3
+: 889    204    62.5    63.0      F    57.0     2
+: 895   136A    68.5    65.0      F    64.0     8
+: 896   136A    68.5    65.0      F    63.5     8
+: 897   136A    68.5    65.0      F    63.0     8
+: 
+: [433 rows x 6 columns]
+
+[[file:/tmp/ob-ipython-htmlwzIzKd.html]]
+:end:
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_2.py
+#TODO
+#+END_SRC
+
+
+** Code à écrire pour visualiser la corrélation
+
+#+BEGIN_SRC ipython
+#%load "hints/fr/stats/regression_to_the_mean_3.py"
+# visualisation de la corrélation
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_3.py
+#%load solutions/fr/stats/regression_to_the_mean_2.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_3.py
+#TODO
+#+END_SRC
+
+* Coefficient de détermination
+
+Est-ce que la taille de la mère a un effet important sur la taille de la fille dans l'échantillon mesuré ? Quantifier cette relation. Est-ce que l'on peut généraliser la corrélation observée à l'ensemble de la population ? Quantifier la confiance avec laquelle le résultat précédent est généralisable. Ajouter l'information de significativité sur la visualisation.
+
+#+BEGIN_SRC ipython
+#%load hints/fr/stats/regression_to_the_mean_4.py
+# visualisation du coefficient de détermination
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_4.py
+#%load solutions/fr/stats/regression_to_the_mean_4.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_4.py
+#TODO
+#+END_SRC
+
+* Régression vers la moyenne
+
+En étudiant le premier ⅓ de l'échantillon (en nombre de familles), déterminer si la taille des individus (hommes et femmes) change d'une génération à la suivante. Est-ce que le phénomène est significatif ? Quelle(s) explication(s) proposez-vous au phénomène observé ? (Est-ce que le premier ⅓ est représentatif ?)
+
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_5.py
+# sélection du premier tiers des familles
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_5.py
+#%load solutions/fr/stats/regression_to_the_mean_5.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_5.py
+#TODO
+#+END_SRC
+
+
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_6.py
+#  affichage de la taille moyenne des enfants de ce premier tiers
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_6.py
+#%load solutions/fr/stats/regression_to_the_mean_6.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_6.py
+#TODO
+#+END_SRC
+
+
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_7.py
+# affichage de la taille moyenne des parents de ce premier tiers
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_7.py
+#%load solutions/fr/stats/regression_to_the_mean_7.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_7.py
+#TODO
+#+END_SRC
+
+
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_8.py
+# affichage des distributions de tailles des parents et des enfants de ce premier tiers
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_8.py
+#%load solutions/fr/stats/regression_to_the_mean_8.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_8.py
+#TODO
+#+END_SRC
+
+
+
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_9.py
+# calcul de la significativité de différence des distributions de tailles d'une génération à la suivante
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_9.py
+#%load solutions/fr/stats/regression_to_the_mean_9.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_9.py
+#TODO
+#+END_SRC
+
+
+** Bonus
+
+Quels sont les résultats pour le dernier ⅓ de l'échantillon ?
+
+#+BEGIN_SRC ipython
+#% load hints/fr/stats/regression_to_the_mean_10.py
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./hints/fr/stats/regression_to_the_mean_10.py
+#%load solutions/fr/stats/regression_to_the_mean_10.py
+# TODO
+#+END_SRC
+
+#+BEGIN_SRC ipython :mkdirp yes :exports none :tangle ./solutions/fr/stats/regression_to_the_mean_10.py
+#TODO
+#+END_SRC
+
