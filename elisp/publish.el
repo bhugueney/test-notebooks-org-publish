@@ -64,7 +64,7 @@
     (make-directory pub-dir t))
   (print (concat "created " pub-dir))
   (setq pub-dir (file-name-as-directory pub-dir))
-  (mapc (lambda (el) (copy-file-createing-dirs el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
+  (mapc (lambda (el) (copy-file-creating-dirs el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
 
 (setq org-publish-project-alist
       '(("notebooks"
