@@ -89,6 +89,12 @@
          :recursive t
          :publishing-function org-publish-attachment
          )
+	("data"
+         :base-directory "./Notebooks/Data/"
+         :publishing-directory "./public/Data"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
 	;; ("python-src" ;; should distinguish hints and solutions ?
         ;;  :base-directory "./Notebooks"
         ;;  :base-extension "py"
@@ -101,6 +107,6 @@
          :publishing-directory "./public/"
          :recursive t
          :publishing-function tangle-publish-with-directories)
-        ("all" :components ("notebooks" "img" "tangles"))))
+        ("all" :components ("notebooks" "img" "data" "tangles"))))
 
 (org-publish-all)
