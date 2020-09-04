@@ -92,6 +92,7 @@
 	("data"
          :base-directory "./Notebooks/Data/"
          :publishing-directory "./public/Data"
+	 :base-extension any
          :recursive t
          :publishing-function org-publish-attachment
          )
