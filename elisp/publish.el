@@ -49,8 +49,8 @@
     (common-prefix-impl (substring str1 1) (substring str2 1) (concat res (substring str1 0 1)))))
 
 (defun copy-file-creating-dirs (filename dest)
-  (unless (file-exists-p (file-name-directory dest)
-			 (make-directory (file-name-directory dest) t)))
+  (unless (file-exists-p (file-name-directory dest))
+    (make-directory (file-name-directory dest) t))
   (copy-file filename dest t))
 
 
