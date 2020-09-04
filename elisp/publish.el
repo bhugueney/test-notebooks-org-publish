@@ -56,8 +56,7 @@
 
 (defun move-with-subdirs (notebook-path tangled-path publishing-dir)
   (let ((root-path (common-prefix notebook-path tangled-path)))
-    (copy-file-creating-dirs
-     (concat publishing-dir (string-remove-prefix root-path tangled-path))) ))
+    (concat publishing-dir (string-remove-prefix root-path tangled-path))))
 
 (defun tangle-publish-with-directories (_ filename pub-dir)
   "Tangle FILENAME and place the results in PUB-DIR."
@@ -65,7 +64,7 @@
     (make-directory pub-dir t))
   (print (concat "created " pub-dir))
   (setq pub-dir (file-name-as-directory pub-dir))
-  (mapc (lambda (el) (copy-file el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
+  (mapc (lambda (el) (copy-file-createing-dirs el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
 
 (setq org-publish-project-alist
       '(("notebooks"
