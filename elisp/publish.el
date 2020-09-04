@@ -62,6 +62,7 @@
   "Tangle FILENAME and place the results in PUB-DIR."
   (unless (file-exists-p pub-dir)
     (make-directory pub-dir t))
+  (print (concat "created " pub-dir))
   (setq pub-dir (file-name-as-directory pub-dir))
   (mapc (lambda (el) (copy-file el (move-with-subdirs filename el pub-dir) t)) (org-babel-tangle-file filename)))
 
