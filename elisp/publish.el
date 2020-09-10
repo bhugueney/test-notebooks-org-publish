@@ -2,6 +2,12 @@
 (let ((default-directory  "/root/scimax"))
   (normal-top-level-add-subdirs-to-load-path))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t)
+   (dot . t)
+   (plantuml . t))) ; this line activates ditaa
+
 (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
 (setq org-plantuml-jar-path
       (expand-file-name "/root/plantuml-1.2019.8/plantuml.jar"))

@@ -4,12 +4,11 @@
 #+LANGUAGE:  fr
 
 
-* Ditaa
+* Illustrations code blocks                                        :noexport:
+** Ditaa
 
-[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
-
-
-#+BEGIN_SRC ditaa :file img/ditaa-example.png :exports results
+#+name: ditaa-example
+#+BEGIN_SRC ditaa :file img/ditaa-example-file.png :exports none
     +--------+   +-------+    /-------\
     |        | --+ ditaa +--> |       |
     |  Text  |   +-------+    |diagram|
@@ -21,9 +20,10 @@
         +-------------------------+
 #+END_SRC
 
-* Graphviz
-The [[https://www.graphviz.org/][reference for graph diagrams]] :
-#+BEGIN_SRC dot :file img/dot-example.svg :exports results
+** Graphviz
+
+#+name: graphviz-example
+#+BEGIN_SRC dot :file img/dot-example-file.svg :exports none
 digraph structs {
 	node[shape=record]
 	struct1 [label="<f0> left|<f1> mid\ dle|<f2> right"];
@@ -33,14 +33,13 @@ digraph structs {
 	struct1:f0 -> struct3:f1;
 }
 #+END_SRC
-#+BEGIN_NOTES
-Export to PNG or SVG.
-#+END_NOTES
 
-* Plantuml
-[[http://plantuml.com/][PlantUML]] for most UML diagrams
-** Sequence diagrams
-#+BEGIN_SRC plantuml :file img/plantuml-seq-diag-example.png :exports results
+** PlantUML
+
+*** Sequence diagrams
+
+#+name: plantUML-seq-diag-example
+#+BEGIN_SRC plantuml :file img/plantuml-seq-diag-example-file.png :exports none
 Alice->Bob : hello
 note left: this is a first note
 Bob->Alice : ok
@@ -53,9 +52,10 @@ note left
 end note
 #+END_SRC
 
+*** Use case diagrams
 
-** Use case diagrams
-#+BEGIN_SRC plantuml :file img/plantuml-use-case-diag-example.png :exports results
+#+name: plantUML-use-case-diag-example
+#+BEGIN_SRC plantuml :file img/plantuml-use-case-diag-example-file.png :exports none
 :Main Admin: as Admin
 (Use the application) as (Use)
 User -> (Start)
@@ -71,8 +71,10 @@ note "This note is connected\nto several objects." as N2
 N2 .. (Use)
 #+END_SRC
 
-** Class diagrams
-#+BEGIN_SRC plantuml :file img/plantuml-class-diag-example.png :exports results
+*** Class diagrams
+
+#+name: plantUML-class-diag-example
+#+BEGIN_SRC plantuml :file img/plantuml-class-diag-example-file.png :exports none
 abstract class AbstractList
 abstract AbstractCollection
 interface List
@@ -97,10 +99,12 @@ enum TimeUnit {
 }
 
 annotation SuppressWarnings
-
 #+END_SRC
-** Activity diagrams
-#+BEGIN_SRC plantuml :file img/plantuml-activity-diag-example.png :exports results
+
+*** Activity diagrams
+
+#+name: plantUML-activity-diag-example
+#+BEGIN_SRC plantuml :file img/plantuml-activity-diag-example-file.png :exports none
 start
 
 if (Graphviz installed?) then (yes)
@@ -112,14 +116,67 @@ endif
 
 stop
 #+END_SRC
-** State diagrams
-#+BEGIN_SRC plantuml :file img/plantuml-state-diag-example.png :exports results
-[*] -up-> First
-First -right-> Second
-Second --> Third
-Third -left-> Last
 
+*** State diagrams
+
+#+name: plantUML-state-diag-example
+#+BEGIN_SRC plantuml :file img/plantuml-state-diag-example-file.png :exports none
+start
+
+if (Graphviz installed?) then (yes)
+  :process all\ndiagrams;
+else (no)
+  :process only
+  __sequence__ and __activity__ diagrams;
+endif
+
+stop
 #+END_SRC
+
+
+
+
+* Ditaa
+
+[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
+
+
+#+CALL: ditaa-example() :results file
+
+* Graphviz
+The [[https://www.graphviz.org/][reference for graph diagrams]] :
+
+#+CALL: graphviz-example() :results file
+
+
+#+BEGIN_NOTES
+Export to PNG or SVG.
+#+END_NOTES
+
+* Plantuml
+[[http://plantuml.com/][PlantUML]] for most UML diagrams
+** Sequence diagrams
+
+#+CALL: plantUML-seq-diag-example() :results file
+
+
+** Use case diagrams
+
+#+CALL: plantUML-use-case-diag-example() :results file
+
+** Class diagrams
+
+#+CALL: plantUML-class-diag-example() :results file
+
+** Activity diagrams
+
+#+CALL: plantUML-activity-diag-example() :results file
+
+
+
+** State diagrams
+
+#+CALL: plantUML-state-diag-example() :results file
 
 
 * COMMENT File-local variables :noexport:
