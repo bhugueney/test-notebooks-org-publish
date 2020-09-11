@@ -2,18 +2,18 @@
 (let ((default-directory  "/root/scimax"))
   (normal-top-level-add-subdirs-to-load-path))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((ditaa . t)
-   (dot . t)
-   (plantuml . t))) ; this line activates ditaa
+(require 'ox-ipynb)
+(require 'ox-publish)
+
+(org-babel-do-load-languages 'org-babel-load-languages
+                             (append org-babel-load-languages
+				     '((ditaa 	 . t)
+				       (dot      . t)
+				       (plantuml . t))))
 
 (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
 (setq org-plantuml-jar-path
       (expand-file-name "/root/plantuml-1.2019.8/plantuml.jar"))
-
-(require 'ox-ipynb)
-(require 'ox-publish)
 
 (defun ipynb-rise-metadata (orig-func &rest args)
   (let ((data (apply orig-func args)))

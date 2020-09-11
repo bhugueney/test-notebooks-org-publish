@@ -1,0 +1,40 @@
+#+TITLE: Testing generated images
+#+AUTHOR: Bernard Hugueney
+#+DATE: <2020-08-30 Sun 15:20>
+#+LANGUAGE:  fr
+
+
+* test 
+
+
+* Illustrations code blocks
+
+** Ditaa
+
+#+BEGIN_SRC ditaa :file img/ditaa-example-file.png :exports results
+    +--------+   +-------+    /-------\
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    | cRED  |
+    |     {d}|   | {io}  |    |       |
+    +---+----+   +-------+    \-------/
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+
+* Ditaa
+
+[[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
+
+
+
+
+
+* COMMENT File-local variables :noexport:
+Local Variables:
+ispell-local-dictionary: "fr-lrg"
+org-src-preserve-indentation: t
+indent-tabs-mode: nil
+End:
