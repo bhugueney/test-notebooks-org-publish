@@ -42,10 +42,19 @@
 	      (concat "https://colab.research.google.com/github/bhugueney/test-notebooks-org-publish/blob/master/public/" notebookname)
               (concat filename " on google colaboratory") ))))
 
+(defun ox-ipynb-publish-to-org-then-notebook (plist filename pub-dir)
+  "Publish an org-file to a Jupyter notebook."
+  (with-current-buffer (find-file-noselect filename)
+    (with-current-buffer (org-org-export-as-org)
+      (let ((output (ox-ipynb-export-to-ipynb-file)))
+	(org-publish-attachment plist (expand-file-name output)  pub-dir)
+	output))))
+
+
 (defun publish-index-as-html-oterwise-ipynb (_plist filename pub-dir)
   (if (equal (file-name-nondirectory filename)  "index.org")
       (org-html-publish-to-html _plist filename pub-dir)   
-    (ox-ipynb-publish-to-notebook _plist filename pub-dir)))
+    (ox-ipynb-publish-to-org-then-notebook _plist filename pub-dir)))
 
 (defun common-prefix (str1 str2)
   (common-prefix-impl str1 str2 ""))
