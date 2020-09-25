@@ -93,9 +93,9 @@
 
 (setq org-publish-project-alist
       '(("notebooks-pre"
-         :base-directory "./Notebooks/"
+         :base-directory "./broken/"
          :base-extension "org"
-         :publishing-directory "./tmp/"
+         :publishing-directory "./Notebooks/"
 	 :with-author nil
          :recursive t
          :publishing-function org-org-publish-to-org ;; publish-index-as-html-otherwise-ipynb
@@ -142,6 +142,6 @@
          :publishing-directory "./public/"
          :recursive t
          :publishing-function tangle-publish-with-directories)
-        ("all" :components ( "notebooks" "img" "data" "tangles"))))
+        ("all" :components ( "notebooks-pre" "notebooks" "img" "data" "tangles"))))
 
 (org-publish-all)
