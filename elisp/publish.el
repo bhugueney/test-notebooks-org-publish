@@ -50,11 +50,18 @@
 	(org-publish-attachment plist (expand-file-name output)  pub-dir)
 	output))))
 
+(defun ox-ipynb-publish-to-notebook (plist filename pub-dir)
+  "Publish an org-file to a Jupyter notebook."
+  (with-current-buffer (find-file-noselect filename)
+    (let ((output (ox-ipynb-export-to-ipynb-file)))
+      (org-publish-attachment plist (expand-file-name output)  pub-dir)
+      output)))
 
-(defun publish-index-as-html-oterwise-ipynb (_plist filename pub-dir)
+
+(defun publish-index-as-html-otherwise-ipynb (_plist filename pub-dir)
   (if (equal (file-name-nondirectory filename)  "index.org")
       (org-html-publish-to-html _plist filename pub-dir)   
-    (ox-ipynb-publish-to-org-then-notebook _plist filename pub-dir)))
+    (ox-ipynb-publish-to-notebook _plist filename pub-dir)))
 
 (defun common-prefix (str1 str2)
   (common-prefix-impl str1 str2 ""))
@@ -80,9 +87,20 @@
   (setq pub-dir (file-name-as-directory pub-dir))
   (mapc (lambda (el) (copy-file-creating-dirs el (move-with-subdirs filename el pub-dir))) (org-babel-tangle-file filename)))
 
+
+(make-directory "./tmp" t)
+
 (setq org-publish-project-alist
-      '(("notebooks"
+      '(("notebooks-pre"
          :base-directory "./Notebooks/"
+         :base-extension "org"
+         :publishing-directory "./tmp/"
+	 :with-author nil
+         :recursive t
+         :publishing-function org-org-publish-to-org ;; publish-index-as-html-otherwise-ipynb
+	 )
+	("notebooks"
+         :base-directory "./tmp/"
          :base-extension "org"
          :publishing-directory "./public/"
 	 ;; :auto-index t
@@ -95,7 +113,7 @@
 	 :sitemap-title "Notebooks :"
 	 :with-author nil
          :recursive t
-         :publishing-function publish-index-as-html-oterwise-ipynb
+         :publishing-function publish-index-as-html-otherwise-ipynb
          )
 	("img"
          :base-directory "./Notebooks/img/"
@@ -123,6 +141,6 @@
          :publishing-directory "./public/"
          :recursive t
          :publishing-function tangle-publish-with-directories)
-        ("all" :components ("notebooks" "img" "data" "tangles"))))
+        ("all" :components ("notebooks-pre" "notebooks" "img" "data" "tangles"))))
 
 (org-publish-all)
