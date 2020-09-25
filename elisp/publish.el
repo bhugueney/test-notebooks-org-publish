@@ -101,7 +101,7 @@
          :publishing-function org-org-publish-to-org ;; publish-index-as-html-otherwise-ipynb
 	 )
 	("notebooks"
-         :base-directory "./tmp/"
+         :base-directory "./Notebooks/"
          :base-extension "org"
          :publishing-directory "./public/"
 	 ;; :auto-index t
@@ -142,6 +142,6 @@
          :publishing-directory "./public/"
          :recursive t
          :publishing-function tangle-publish-with-directories)
-        ("all" :components ("notebooks-pre" "notebooks" "img" "data" "tangles"))))
+        ("all" :components ( "notebooks" "img" "data" "tangles"))))
 
 (org-publish-all)
