@@ -89,6 +89,7 @@
 
 
 (make-directory "./tmp" t)
+(copy-directory "./Notebooks/img" "./tmp/img")
 
 (setq org-publish-project-alist
       '(("notebooks-pre"
