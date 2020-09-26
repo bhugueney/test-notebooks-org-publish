@@ -123,6 +123,13 @@
          :recursive t
          :publishing-function org-publish-attachment
          )
+	("img-pre"
+         :base-directory "./broken/img/"
+         :base-extension "png\\|jpg\\|gif\\|svg"
+         :publishing-directory "./public/img"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
 	("data"
          :base-directory "./Notebooks/Data/"
          :publishing-directory "./public/Data"
@@ -142,6 +149,6 @@
          :publishing-directory "./public/"
          :recursive t
          :publishing-function tangle-publish-with-directories)
-        ("all" :components ( "notebooks-pre" "notebooks" "img" "data" "tangles"))))
+        ("all" :components ( "notebooks-pre" "img-pre" "notebooks" "img" "data" "tangles"))))
 
 (org-publish-all)
