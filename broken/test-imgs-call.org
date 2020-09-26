@@ -5,7 +5,34 @@
 
 
 * Illustrations code blocks                                        :noexport:
+** Ditaa
 
+#+name: ditaa-example
+#+BEGIN_SRC ditaa :file img/ditaa-example-file.png :exports none
+    +--------+   +-------+    /-------\
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    | cRED  |
+    |     {d}|   | {io}  |    |       |
+    +---+----+   +-------+    \-------/
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+#+END_SRC
+
+** Graphviz
+
+#+name: graphviz-example
+#+BEGIN_SRC dot :file img/dot-example-file.svg :exports none
+digraph structs {
+	node[shape=record]
+	struct1 [label="<f0> left|<f1> mid\ dle|<f2> right"];
+	struct2 [label="{<f0> one|<f1> two\n\n\n}" shape=Mrecord];
+	struct3 [label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
+	struct1:f1 -> struct2:f0;
+	struct1:f0 -> struct3:f1;
+}
+#+END_SRC
 
 ** PlantUML
 
@@ -113,34 +140,13 @@ stop
 
 [[http://ditaa.sourceforge.net/][DIagrams Through Ascii Art]] :
 
-#+BEGIN_SRC ditaa :file img/ditaa-example-file-2.png :exports results :results file
-    +--------+   +-------+    /-------\
-    |        | --+ ditaa +--> |       |
-    |  Text  |   +-------+    |diagram|
-    |Document|   |!magic!|    | cRED  |
-    |     {d}|   | {io}  |    |       |
-    +---+----+   +-------+    \-------/
-        :                         ^
-        |       Lots of work      |
-        +-------------------------+
-#+END_SRC
 
+#+CALL: ditaa-example() :results file
 
 * Graphviz
-
 The [[https://www.graphviz.org/][reference for graph diagrams]] :
 
-
-#+BEGIN_SRC dot :file img/dot-example-file-2.svg :exports results :results file
-digraph structs {
-	node[shape=record]
-	struct1 [label="<f0> left|<f1> mid\ dle|<f2> right"];
-	struct2 [label="{<f0> one|<f1> two\n\n\n}" shape=Mrecord];
-	struct3 [label="hello\nworld |{ b |{c|<here> d|e}| f}| g | h"];
-	struct1:f1 -> struct2:f0;
-	struct1:f0 -> struct3:f1;
-}
-#+END_SRC
+#+CALL: graphviz-example() :results file
 
 
 #+BEGIN_NOTES
@@ -151,19 +157,7 @@ Export to PNG or SVG.
 [[http://plantuml.com/][PlantUML]] for most UML diagrams
 ** Sequence diagrams
 
-#+BEGIN_SRC plantuml :file img/plantuml-seq-diag-example-file-2.png :exports results :results file
-Alice->Bob : hello
-note left: this is a first note
-Bob->Alice : ok
-note right: this is another note
-Bob->Bob : I am thinking
-note left
-	a note
-	can also be defined
-	on several lines
-end note
-#+END_SRC
-
+#+CALL: plantUML-seq-diag-example() :results file
 
 
 ** Use case diagrams
